@@ -22,3 +22,4 @@ resid_var <- var(model$resid, na.rm=TRUE)      # The first two residuals are not
                                                # na.rm=TRUE tells var() to ignore them
 print( round(resid_var, digits=2) )            # Print the variance of residuals
 
+# this script DOESN'T calculate OLS neither NLLS !

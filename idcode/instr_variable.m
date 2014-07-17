@@ -22,15 +22,16 @@ for run=1:nruns,
    ym = y + e;                 % Measured output
 
    % Data for least squares
-   upast     = u(2:N+1);
-   upastpast = u(1:N);
-	ypast     = ym(2:N+1);
-   ypresent  = ym(3:N+2);
-   Phi = [ypast, upast];       % Regressors
+	upast     = u(2:N+1);		%  234567........1001		
+	upastpast = u(1:N);			% 1234567....1000
+	ypast     = ym(2:N+1);		%  234567........1001
+	ypresent  = ym(3:N+2);		%   34567............1002
+	
+	Phi = [ypast, upast];       % Regressors
 	Psi = [upast, upastpast];   % Instrumental variables
 
    % Least squares estimation
-   theta_LS = inv(Psi'*Phi)*Psi'*ypresent;
+	theta_LS = inv(Psi'*Phi)*Psi'*ypresent;
 	a_estimates(run) = theta_LS(1);
 	b_estimates(run) = theta_LS(2);
 end

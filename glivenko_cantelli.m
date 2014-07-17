@@ -11,15 +11,15 @@
 x = linspace(-5, 5, 2000);        % Abscissas for plotting
 trueDist = normcdf(x);            % Cumulative distribution of N(0,1)
 
-T = 1;                            % Number of trajectories
+T = 20;                            % Number of trajectories
 MAX_N = 10000;                    % Length of the trajectory (ideally infinite)
 trajectories = randn(T, MAX_N);   % (Ideally) iid variables distributed as N(0,1)
-
+i = 1;
 
 % Show in subsequent plots what happens as N increases, to appreciate uniform convergence
 for N=[5, 10, 30, 100, 300, 1000, 3000, 10000],
 
-   figure(1);
+   figure(i);
    clf;
    hold on;
    axis([-5 5 0 1]);
@@ -37,8 +37,6 @@ for N=[5, 10, 30, 100, 300, 1000, 3000, 10000],
 
    % Then plot the true one
    plot(x, trueDist, 'k');
-   pause;
-
 end
 
 %---------------------------------------------------------------------------------------
