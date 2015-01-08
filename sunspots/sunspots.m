@@ -66,6 +66,7 @@ for i=3:N
 	Ysig(i) = a*Ysig(i-1)+b*Ysig(i-2)+ mean(ss)*rand(1);
 end
 figure(1), hold on, plot(yrs, Ysig, 'b')
+legend('real data', 'AR fitting')
 
 % order 2 is the minimum order such that the transfer function
 % can have a pair of complex conjugate poles; a necessary condition for a resonance,
